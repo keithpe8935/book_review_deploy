@@ -1,0 +1,20 @@
+{% if review.rating == 1 %}
+{% load static %}
+Rating <img src="{% static "book_review_app/img/1star.png" %}" alt="One Star" style="width:80px;height:20px;">
+{% endif %}
+{% if review.rating == 2 %}
+{% load static %}
+Rating <img src="{% static "book_review_app/img/2star.png" %}" alt="Two Stars" style="width:80px;height:20px;">
+{% endif %}
+{% if review.rating == 3 %}
+{% load static %}
+Rating <img src="{% static "book_review_app/img/3star.png" %}" alt="Three Stars" style="width:80px;height:20px;">
+{% endif %}
+{% if review.rating == 4 %}
+{% load static %}
+Rating <img src="{% static "book_review_app/img/4star.png" %}" alt="Four Stars" style="width:80px;height:20px;">
+{% endif %}
+{% if review.rating == 5 %}
+{% load static %}
+Rating <img src="{% static "book_review_app/img/5star.png" %}" alt="Five Stars" style="width:80px;height:20px;">
+{% endif %}

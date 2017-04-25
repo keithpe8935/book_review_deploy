@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Book Reviews</title>
+  </head>
+  <body>
+    <a href="{% url 'login_app:logout' %}">Logout</a>
+    <a href="{% url 'login_app:index' %}">Return to login screen</a>
+    <a href="{% url 'book_review_app:add_book' %}">Add a Book</a>
+    <h1>Welcome, {{request.session.first_name}}</h1>
+    <h2>Recent Book Reviews(3):</h2>
+
+<div id='recent_reviews'>
+  {% for review in reviews_short %}
+    <h3><a href="{% url 'book_review_app:show_book' review.book_id %}">{{review.book.book_title}}</a></h3>
+    {% include "book_review_app/stars.html" %}
+    <p><a href="user/{{review.user_id}}">{{review.user.first_name}}</a> says: {{review.review}}</p>
+    <p>Posted on: {{review.created_at|date:"F j, Y"}}
+  {% endfor %}
+</div>
+  <h3>Other Books with Reviews:</h3>
+<div>
+  {% for book in books %}
+  <p><a href="{% url 'book_review_app:show_book' book.id %}">{{book.book_title}}</a>
+  {% endfor %}
+</div>
+{% comment %}
+<!-- I use this for testing -->
+    <div id='book_list'>
+      <p>*** List of Books in database ***</p>
+      {% for book in books %}
+      <p>Title: {{ book.book_title }} ({{book.id}}) {{book.author.full_name}} Added: {{book.created_at}}</p>
+      {% endfor %}
+    </div>
+    <div id='author_list'>
+      <p>*** List of Authors in database ***</p>
+      {% for author in authors %}
+      <p>{{author.full_name}} {{author.book.book_title}}</p>
+      {% endfor %}
+    </div>
+    <div id='review_list'>
+      <p>*** List of Reviews in database ***</p>
+      {% for review in reviews %}
+      <p>{{review.review}} Rating: {{review.rating}} User:{{review.user_id}} {{review.user.full_name}} Book:{{review.book_id}} {{review.book.book_title}} Author: {{review.book.author.first_name}}</p>
+      {% endfor %}
+    </div>
+{% endcomment %}
+  </body>
+</html>

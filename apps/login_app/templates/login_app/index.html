@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    {% load staticfiles %}
+    <link rel='stylesheet' href="{% static 'login_app/css/style.css' %}">
+    <title>Login and Registration Assignment</title>
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="message_panel">
+        <h3 class="center">Registration and Login Assignment</h3>
+        {% if request.session.id %}
+        <h4 class="center">Logged in as: {{request.session.first_name}}</h4>
+        {% endif %}
+        {% if messages %}
+        <ul class="messages" class="center">
+          {% for message in messages %}
+          <li {% if message.tags %} class="{{ message.tags }} center"{% else %}class="center"{% endif %}>{{ message }}</li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      </div>
+      <div id="login">
+        <form class="" action="/login" method="post">
+          {% csrf_token %}
+          <label class="heading_lbl" for="">Login</label><br><br>
+          <label class="prompt_lbl" for="email">Email:</label>
+          <input class="login" type="text" name="email" value=""><br>
+          <label class="prompt_lbl" for="password">Password:</label>
+          <input class="login" type="password" name="password" value=""><br>
+          <input id="login_btn" class="button" type="submit" name="login" value="Login"><br><br>
+        </form>
+      </div>
+      <div id="register">
+        <form class="" action="/register" method="post">
+          {% csrf_token %}
+          <label class="heading_lbl" for="">Registration</label><br><br>
+          <label class="prompt_lbl" for="first_name">First Name:</label>
+          <input class="login" type="text" name="first_name" value="{{request.session.register_first_name}}"><br>
+          <label class="prompt_lbl" for="last_name">Last Name:</label>
+          <input class="login" type="text" name="last_name" value="{{request.session.register_last_name}}"><br>
+          <label class="prompt_lbl" for="alias">Alias:</label>
+          <input class="login" type="text" name="alias" value="{{request.session.register_alias}}"><br>
+          <label class="prompt_lbl" for="email">Email:</label>
+          <input class="login" type="text" name="email" value="{{request.session.register_email}}"><br>
+          <label class="prompt_lbl" for="password">Password:</label>
+          <input class="login" type="password" name="password" value=""><br>
+          <label class="prompt_lbl" for="confirm_pw">Confirm:</label>
+          <input class="login" type="password" name="confirm_pw" value=""><br>
+          <input id="register_btn" class="button" type="submit" name="register" value="Register"><br><br>
+        </form>
+      </div>
+      <div id="misc_info">
+        <form id="logout_btn" class="" action="/logout" method="post">
+          {% csrf_token %}
+          <input class="button" type="submit" name="logout" value="Logout"><br><br>
+        </form>
+        <form id="clear_btn" class="" action="/clear_form" method="post">
+          {% csrf_token %}
+          <input class="button" type="submit" name="clear_form" value="Clear Form"><br><br>
+        </form>
+        {% comment 'Removed delete button for product. This will delete all users' %}
+        <form id="delete_btn" class="" action="/delete_all" method="post">
+          {% csrf_token %}
+          <input class="button" type="submit" name="delete_all" value="Delete All"><br><br>
+        </form>
+        {% endcomment %}
+      </div>
+      {% if request.session.id == 1 %}
+      <div id="user_list">
+        <table id="user_table">
+          <th id="user_list_heading">User Name and Email</th>
+          {% for user in users %}
+          <tr>
+            <td>{{user.full_name}}, {{user.email}}, {{user.alias}}</td>
+          </tr>
+          {% endfor %}
+        </table>
+      </div>
+      {% endif %}
+    </div>
+  </body>
+</html>

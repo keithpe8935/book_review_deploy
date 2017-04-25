@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Show User</title>
+  </head>
+  <body>
+    <a href="{% url 'book_review_app:books' %}">Home</a>
+    <a href="{% url 'book_review_app:add_book' %}">Add Book and Review</a>
+    <a href="{% url 'login_app:logout' %}">Logout</a>
+
+  <h4>Name: {{user.user.full_name}}</h4>
+  <h4>Alias: {{user.user.alias}}</h4>
+  <h4>Email: {{user.user.email}}</h4>
+  <h4>Total Reviews: {{count}}</h4>
+
+<h3>Posted Reviews on the following books:</h3>
+{% for review in reviews %}
+  <p><a href="{% url 'book_review_app:show_book' review.book_id %}">{{review.book.book_title}}</a></p>
+{% endfor %}
+  </body>
+</html>
