@@ -28,9 +28,6 @@ DEBUG = False
 =======
 DEBUG = False
 
-ALLOWED_HOSTS = ['34.209.69.51', 'reviews.sumarap.com']
->>>>>>> fcd3f53285acda122cc2ee66cfa5332d9d5b9f52
-
 ALLOWED_HOSTS = [ '52.34.83.113', 'reviews.sumarap.com']
 
 # Application definition
@@ -126,7 +123,3 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "static/")
-<<<<<<< HEAD
-
-=======
->>>>>>> fcd3f53285acda122cc2ee66cfa5332d9d5b9f52
