@@ -8,8 +8,6 @@ from django.core.urlresolvers import reverse
 from models import Book, Review, Author
 import datetime
 
-#TODO: Add 'Other Books with Reviews' section (div?). Display the list of book titles (only the titles), that already have reviews. (will this require css to make readable?)
-
 # Create your views here.
 def books(request):
     # if user isn't logged in then display the login screen
