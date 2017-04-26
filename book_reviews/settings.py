@@ -23,7 +23,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '=d7a=o)@_p6foeuqb&!xw71w70l(lnnw80+d#jh8m(d5hxsm3h'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+<<<<<<< HEAD
 DEBUG = False 
+=======
+DEBUG = False
+
+ALLOWED_HOSTS = ['34.209.69.51', 'reviews.sumarap.com']
+>>>>>>> fcd3f53285acda122cc2ee66cfa5332d9d5b9f52
 
 ALLOWED_HOSTS = [ '52.34.83.113', 'reviews.sumarap.com']
 
@@ -120,4 +126,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "static/")
+<<<<<<< HEAD
 
+=======
+>>>>>>> fcd3f53285acda122cc2ee66cfa5332d9d5b9f52
