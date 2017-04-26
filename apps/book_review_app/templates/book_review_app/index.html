@@ -9,7 +9,7 @@
     <a href="{% url 'login_app:index' %}">Return to login screen</a>
     <a href="{% url 'book_review_app:add_book' %}">Add a Book</a>
     <h1>Welcome, {{request.session.first_name}}</h1>
-    <h2>Recent Book Reviews(3):</h2>
+    <h2>Recent Book Reviews (3):</h2>
 
 <div id='recent_reviews'>
   {% for review in reviews_short %}
