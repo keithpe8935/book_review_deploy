@@ -23,9 +23,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '=d7a=o)@_p6foeuqb&!xw71w70l(lnnw80+d#jh8m(d5hxsm3h'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-<<<<<<< HEAD
-DEBUG = False 
-=======
 DEBUG = False
 
 ALLOWED_HOSTS = [ '52.34.83.113', 'reviews.sumarap.com']
